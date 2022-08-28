@@ -76,7 +76,12 @@ class NewReminderViewController: UIViewController {
            let content = textViewContent.text {
             let file = currentCategoryDirectory.appendingPathComponent("\(title).txt")
 
-            try? content.write(to: file, atomically: false, encoding: .utf8)
+            do {
+                try content.write(to: file, atomically: false, encoding: .utf8)
+                
+            } catch {
+                print("error")
+            }
         }
         
         dismiss(animated: true)

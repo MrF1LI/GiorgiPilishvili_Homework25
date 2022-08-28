@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4E75F85428B62C7500121A8C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E75F85328B62C7500121A8C /* Extensions.swift */; };
+		4E8B708328B9E64E00BA3698 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B708228B9E64E00BA3698 /* NotificationManager.swift */; };
+		4E8B708528B9E69600BA3698 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B708428B9E69600BA3698 /* Notification.swift */; };
 		4E99ED6528B4CDB8005845FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E99ED6428B4CDB8005845FE /* AppDelegate.swift */; };
 		4E99ED6728B4CDB8005845FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E99ED6628B4CDB8005845FE /* SceneDelegate.swift */; };
 		4E99ED6928B4CDB8005845FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E99ED6828B4CDB8005845FE /* ViewController.swift */; };
@@ -29,6 +31,9 @@
 
 /* Begin PBXFileReference section */
 		4E75F85328B62C7500121A8C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4E8B708128B9E52000BA3698 /* GiorgiPilishvili_Homework25.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiorgiPilishvili_Homework25.entitlements; sourceTree = "<group>"; };
+		4E8B708228B9E64E00BA3698 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		4E8B708428B9E69600BA3698 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		4E99ED6128B4CDB8005845FE /* GiorgiPilishvili_Homework25.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiorgiPilishvili_Homework25.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E99ED6428B4CDB8005845FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E99ED6628B4CDB8005845FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +85,7 @@
 		4E99ED6328B4CDB8005845FE /* GiorgiPilishvili_Homework25 */ = {
 			isa = PBXGroup;
 			children = (
+				4E8B708128B9E52000BA3698 /* GiorgiPilishvili_Homework25.entitlements */,
 				4E99ED6428B4CDB8005845FE /* AppDelegate.swift */,
 				4E99ED6628B4CDB8005845FE /* SceneDelegate.swift */,
 				4E99ED7C28B4D249005845FE /* Views */,
@@ -90,6 +96,7 @@
 				4E99ED6D28B4CDB9005845FE /* Assets.xcassets */,
 				4E99ED6F28B4CDB9005845FE /* LaunchScreen.storyboard */,
 				4E99ED7228B4CDB9005845FE /* Info.plist */,
+				4E8B708228B9E64E00BA3698 /* NotificationManager.swift */,
 			);
 			path = GiorgiPilishvili_Homework25;
 			sourceTree = "<group>";
@@ -136,6 +143,7 @@
 			children = (
 				4E99ED8828B4EB50005845FE /* Category.swift */,
 				4E99ED8F28B514FC005845FE /* Reminder.swift */,
+				4E8B708428B9E69600BA3698 /* Notification.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,12 +236,14 @@
 				4E99ED9428B53DFD005845FE /* NewReminderViewController.swift in Sources */,
 				4E99ED9228B5151D005845FE /* ConfigReminders.swift in Sources */,
 				4E99ED7B28B4CFDD005845FE /* RemindersViewController.swift in Sources */,
+				4E8B708328B9E64E00BA3698 /* NotificationManager.swift in Sources */,
 				4E99ED8528B4D296005845FE /* ReminderCell.swift in Sources */,
 				4E99ED6928B4CDB8005845FE /* ViewController.swift in Sources */,
 				4E99ED6528B4CDB8005845FE /* AppDelegate.swift in Sources */,
 				4E99ED6728B4CDB8005845FE /* SceneDelegate.swift in Sources */,
 				4E99ED8C28B4F490005845FE /* ConfigCategories.swift in Sources */,
 				4E99ED8028B4D277005845FE /* CategoryCell.swift in Sources */,
+				4E8B708528B9E69600BA3698 /* Notification.swift in Sources */,
 				4E75F85428B62C7500121A8C /* Extensions.swift in Sources */,
 				4E99ED8928B4EB50005845FE /* Category.swift in Sources */,
 				4E99ED9028B514FC005845FE /* Reminder.swift in Sources */,
@@ -381,9 +391,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = GiorgiPilishvili_Homework25/GiorgiPilishvili_Homework25.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DGB3TFY4QM;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GiorgiPilishvili_Homework25/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -399,6 +411,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.learn.GiorgiPilishvili-Homework25";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -410,9 +423,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = GiorgiPilishvili_Homework25/GiorgiPilishvili_Homework25.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DGB3TFY4QM;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GiorgiPilishvili_Homework25/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -428,6 +443,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.learn.GiorgiPilishvili-Homework25";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

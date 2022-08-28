@@ -96,11 +96,11 @@ class RemindersViewController: UIViewController {
             guard let reminderContent = reminderContent else { return }
 
             if !reminderTitle.isEmpty && !reminderContent.isEmpty {
-                self.createReminder(title: reminderTitle, content: reminderContent)
+                self.showDatePicker(reminderTitle: reminderTitle, reminderContent: reminderContent)
             }
             
         }
-        
+
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel)
 
         alert.addAction(action)
@@ -111,7 +111,7 @@ class RemindersViewController: UIViewController {
     
     // MARK: - Other functions
     
-    func createReminder(title: String, content: String) {
+    func createReminder(title: String, content: String, date: Date) {
         
         let documentsDirectory = manager.urls(for: .documentDirectory, in: .userDomainMask).first
         guard let documentsDirectory = documentsDirectory else { return }
@@ -126,10 +126,30 @@ class RemindersViewController: UIViewController {
         manager.createFile(
             atPath: file,
             contents: content.data(using: .utf8),
-            attributes: [.creationDate : Date()])
+            attributes: [.creationDate : Date.now])
+        
+        let notification = Notification(id: UUID().uuidString, title: title, message: content)
+        
+        NotificationManager.shared.register(notification: notification, userInfo: [:], date: date, repeats: false)
         
         loadReminders()
         
+    }
+    
+    func showDatePicker(reminderTitle: String, reminderContent: String) {
+        let myDatePicker: UIDatePicker = UIDatePicker()
+        myDatePicker.timeZone = .current
+        myDatePicker.preferredDatePickerStyle = .wheels
+        myDatePicker.frame = CGRect(x: 0, y: 15, width: 270, height: 200)
+        let alertController = UIAlertController(title: "\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+        alertController.view.addSubview(myDatePicker)
+        let selectAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
+            self.createReminder(title: reminderTitle, content: reminderContent, date: myDatePicker.date)
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(selectAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
     }
 
 }

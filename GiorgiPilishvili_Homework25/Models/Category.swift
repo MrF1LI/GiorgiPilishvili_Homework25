@@ -5,7 +5,7 @@
 //  Created by GIORGI PILISSHVILI on 23.08.22.
 //
 
-import Foundation
+import UIKit
 
 struct Category {
     let name: String
